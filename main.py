@@ -1,3 +1,5 @@
+from .utils import *
+
 global playAgain
 playAgain = True
 while playAgain:
@@ -17,32 +19,6 @@ while playAgain:
     for i in range(8):
         board.append(["  "] * 8)
 
-    def print_board():
-        print("\n")
-        rowCount = 0
-        for row in board:
-            print(("    ".join(row)) + ("        " + str(rows[7 - rowCount])))
-            print("\n")
-            rowCount += 1
-        print("     ".join(cols))
-        print("\n")
-
-    alphabet = "abcdefgh"
-    numbers = "12345678"
-
-    def convertSquare(square):
-        coords = []
-        coords.append(8 - int(square[1]))
-        for i in range(len(alphabet)):
-            if alphabet[i] == square[0]:
-                coords.append(i)
-        return coords
-
-    def convertCoords(coordY, coordX):
-        square = ""
-        square += alphabet[coordX]
-        square += str(8 - coordY)
-        return square
 
     class Piece:
         def __init__(self, piece, color, posY, posX):
